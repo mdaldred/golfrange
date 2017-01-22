@@ -39,6 +39,11 @@ public class GolfRange
         return mLocations;
     }
 
+    public ClubSet getClubs()
+    {
+        return mClubs;
+    }
+
     private GolfRange()
     {
         mLocations = new Locations();

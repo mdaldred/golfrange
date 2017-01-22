@@ -2,11 +2,13 @@ package com.example.maldred.golfrange;
 
 import android.content.SharedPreferences;
 
+import java.io.Serializable;
+
 /**
  * Created by maldred on 01/01/17.
  */
 
-public class Club
+public class Club implements Serializable
 {
     String mName;
     float mDist;
