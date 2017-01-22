@@ -1,5 +1,6 @@
 package com.example.maldred.golfrange;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,12 +75,12 @@ public class ClubSet
         return found;
     }
 
-    public boolean load()
+    public boolean load(File dir)
     {
         return true;
     }
 
-    public boolean save()
+    public boolean save(File dir)
     {
         return true;
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,22 +34,29 @@ public class GolfRange
         return mInstance;
     }
 
+    public Locations getLocations()
+    {
+        return mLocations;
+    }
+
     private GolfRange()
     {
-        load();
+        mLocations = new Locations();
+        mClubs = new ClubSet();
+        mSessions = new Sessions();
     }
 
-    private void load()
+    public void load(File dir)
     {
-        mLocations.load();
-        mClubs.load();
-        mSessions.load();
+        mLocations.load(dir);
+        mClubs.load(dir);
+        mSessions.load(dir);
     }
 
-    private void save()
+    public void save(File dir)
     {
-        mSessions.save();
-        mClubs.save();
-        mLocations.save();
+        mSessions.save(dir);
+        mClubs.save(dir);
+        mLocations.save(dir);
     }
 }
