@@ -1,10 +1,12 @@
 package com.example.maldred.golfrange;
 
+import java.io.Serializable;
+
 /**
  * Created by maldred on 01/01/17.
  */
 
-public class Shot
+public class Shot implements Serializable
 {
     public enum Contact
     {
@@ -51,15 +53,5 @@ public class Shot
     public Tee getTee()
     {
         return mTee;
-    }
-
-    public boolean load()
-    {
-        return true;
-    }
-
-    public boolean save()
-    {
-        return true;
     }
 }

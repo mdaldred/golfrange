@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -31,6 +33,20 @@ public class MainActivity extends AppCompatActivity
         //GolfRange.getInstance().getClubs().addClub("4 iron", 150, 20);
         //GolfRange.getInstance().getClubs().addClub("3 iron", 160, 20);
         //GolfRange.getInstance().getClubs().addClub("Rescue", 175, 20);
+
+        //Conditions condition = new Conditions(Conditions.WindDir.N, Conditions.WindStr.NONE, false );
+        //Calendar cal  = Calendar.getInstance();
+        //cal.set(2016, 5, 21);
+        //GolfRange.getInstance().getSessions().addSession(cal, "Whitely", condition);
+
+        //Session session = GolfRange.getInstance().getSessions().getSession(0);
+        //Shot shot = new Shot(-2, 90, Shot.Contact.CLEAN, Shot.Tee.MAT);
+        //session.addShot("Sand Wedge", shot);
+
+        //GolfRange.getInstance().getSessions().removeSession(cal, "Whitely");
+
+        //cal.set(2017, 1, 14);
+        //GolfRange.getInstance().getSessions().removeSession(cal, "Whitely");
     }
 
     @Override

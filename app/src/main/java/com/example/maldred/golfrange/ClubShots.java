@@ -1,22 +1,25 @@
 package com.example.maldred.golfrange;
 
+import java.io.Serializable;
+
 /**
  * Created by maldred on 01/01/17.
  */
 
-public class ClubShots
+public class ClubShots implements Serializable
 {
-    private Club mClub;
+    private String mClub;
     private Shots mShots;
 
-    public ClubShots(Club club)
+    public ClubShots(String club)
     {
         mClub = club;
+        mShots = new Shots();
     }
 
     public String clubName()
     {
-        return mClub.name();
+        return mClub;
     }
 
     public boolean addShot(Shot shot)
@@ -34,13 +37,9 @@ public class ClubShots
         return mShots.removeShot(shot);
     }
 
-    public boolean load()
-    {
-        return true;
-    }
+    public boolean removeShot(int index) { return mShots.removeShot(index); }
 
-    public boolean save()
-    {
-        return true;
-    }
+    public int numShots() { return mShots.getNumShots(); }
+
+    public Shot getShot(int index) { return mShots.getShot(index); }
 }

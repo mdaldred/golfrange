@@ -1,6 +1,8 @@
 package com.example.maldred.golfrange;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -8,14 +10,14 @@ import java.util.List;
  * Created by maldred on 01/01/17.
  */
 
-public class Session
+public class Session implements Serializable
 {
-    private Date mDate;
-    private Location mLocation;
+    private Calendar mDate;
+    private String mLocation;
     private Conditions mConditions;
     private List<ClubShots> mClubShots;
 
-    public Session(Date date, Location location, Conditions conditions)
+    public Session(Calendar date, String location, Conditions conditions)
     {
         mDate = date;
         mLocation = location;
@@ -24,12 +26,12 @@ public class Session
         mClubShots = new ArrayList<ClubShots>();
     }
 
-    public Date date()
+    public Calendar date()
     {
         return mDate;
     }
 
-    public Location location()
+    public String location()
     {
         return mLocation;
     }
@@ -44,7 +46,14 @@ public class Session
         return mClubShots.size();
     }
 
-    public boolean addShot(Club club, Shot shot)
+    public boolean addShot(String club, float direction, float distance, Shot.Contact contact, Shot.Tee tee)
+    {
+        Shot shot = new Shot(direction, distance, contact, tee);
+
+        return addShot(club, shot);
+    }
+
+    public boolean addShot(String club, Shot shot)
     {
         boolean ret_val=false;
         int index = findClub(club);
@@ -75,24 +84,28 @@ public class Session
         return c;
     }
 
-    public boolean load()
+    public ClubShots getClubShots(String club)
     {
-        return true;
+        ClubShots c = null;
+
+        int index = findClub(club);
+        if (index != -1)
+        {
+            c = getClubShots(index);
+        }
+
+        return c;
+
     }
 
-    public boolean save()
-    {
-        return true;
-    }
-
-    private int findClub(Club club)
+    private int findClub(String club)
     {
         int i=0;
         boolean found = false;
 
         while ((i<numClubsUsed()) && (found==false))
         {
-            if (mClubShots.get(i).clubName() == club.name())
+            if (mClubShots.get(i).clubName() == club)
             {
                 found = true;
             }

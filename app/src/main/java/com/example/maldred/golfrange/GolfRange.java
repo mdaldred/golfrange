@@ -44,6 +44,8 @@ public class GolfRange
         return mClubs;
     }
 
+    public Sessions getSessions() { return mSessions; }
+
     private GolfRange()
     {
         mLocations = new Locations();

@@ -88,7 +88,6 @@ public class ClubSet
     {
         boolean success = true;
 
-
         // get the directory for the clubs data
         File clubsDir = new File(dir,"clubs");
         if (clubsDir.exists())

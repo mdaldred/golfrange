@@ -1,12 +1,13 @@
 package com.example.maldred.golfrange;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by maldred on 01/01/17.
  */
-public class Shots
+public class Shots implements Serializable
 {
     private List<Shot> mShots;
 
@@ -28,6 +29,19 @@ public class Shots
     public boolean removeShot(Shot shot)
     {
         return mShots.remove(shot);
+    }
+
+    public boolean removeShot(int index)
+    {
+        boolean success = false;
+
+        if ((index>=0) && (index<getNumShots()))
+        {
+            success = true;
+            mShots.remove(index);
+        }
+
+        return success;
     }
 
     public Shot getShot(int index)
@@ -92,15 +106,5 @@ public class Shots
         }
 
         return (float)Math.sqrt((double)sum / (double)getNumShots());
-    }
-
-    public boolean load()
-    {
-        return true;
-    }
-
-    public boolean save()
-    {
-        return true;
     }
 }
